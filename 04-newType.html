@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+   div{
+        margin:50px auto;
+        width:100px;
+        height:50px;
+        color:#fff;
+        background:red;
+    }
+    /* .active{
+        background:green;
+    } */
+    </style>
+</head>
+<body>
+    <!-- <fieldset id="form">
+        <legend>datalist</legend>
+      表单类型 -->
+        <!-- 用户名：<input type="text">
+        <br>
+        密码：<input type="password">
+        <br>
+        电子邮箱：<input type="email">
+        <br>
+        拾色器：<input type="color">
+        <br>
+        网址：<input type="url">
+        <br>
+        数组类型：<input type="number">
+        <br>
+        范围:<input type="range" max="100" min="0" value="30">
+        <br>
+        搜索框：<input type="search">
+        <br>
+        电话：<input type="tel">
+        <br>
+        日期：<input type="date">
+        <br>
+        时间：<input type="time"> -->
+
+        <!-- datalist -->
+        <!-- <input type="text" list="ball">
+        <datalist id="ball">
+            <option value="football">足球</option>
+            <option value="basketball">篮球</option>
+            <option value="pingpang">乒乓球</option>
+        </datalist> -->
+        <!-- <form action="http://www.baidu.com" id="form">
+            用户名：<input type="text"  autocomplete name="username">
+            密码：<input type="password" name="password">
+            <button>提交</button>
+        </form>
+        <input type="text" form="form" name="other"> -->
+    
+    <!-- <video  controls   id="video" muted  preload>
+       <source src="./02.mp4">
+    </video>
+    <button>播放</button>
+    <button>暂停</button>
+    <button>静音</button>
+    <button>2倍速</button>
+    <button>全屏</button> -->
+    
+
+    <!-- classList -->
+    <div data-query="经济学问题">
+      经济学涉及什么
+    </div>
+    <div data-query="金融学问题">
+        金融学涉及什么
+    </div>
+    
+   
+
+
+
+   
+</body>
+<script>
+    // var number=document.getElementsByTagName('input');
+    // var sum=document.getElementById('sum');
+    // var count=document.getElementsByTagName('button');
+    // var form =document.getElementById('form');
+    // form.onSumbit=function(e){
+    //     console.log(e);
+    //     e.preventDefault();
+    //     //return false;
+    // }
+    // count[0].onclick=function(){
+    //     sum.value=parseInt(number[0].value)+parseInt(number[1].value);
+    //     console.log(sum.value);
+    // }
+//     let video=document.getElementById('video');
+//     console.dir(video);
+//     let button=document.getElementsByTagName('button');
+//     console.log(button);
+//     button[0].onclick=function(){
+//         video.play();
+//     }
+//     button[1].onclick=function(){
+//         video.pause();
+//     }
+//    button[2].onclick=function(){
+//         video.muted=!video.muted;
+//         this.innerText=video.muted? '静音':'非静音';
+//    }
+//    button[3].onclick=function(){
+//        video.playbackRate=1.5;
+
+//    }
+//    button[4].onclick=function(){
+//        video.webkitDisplayingFullscreen=true;
+//    }
+    // console.log(video);
+    function $(selector){
+        var dom=document.querySelectorAll(selector);
+        if(dom.length>1){
+            return dom;
+        }else{
+            if(dom[0]){
+                return dom[0];
+            }
+        }
+    }
+    var div=$('div');
+    
+   div=Array.from(div);
+   div.forEach(item=>{
+        item.onclick=function(){
+            // alert(this.dataset.query);
+            alert(this.getAttribute('data-query'));
+        }
+    })
+
+    // button[0].onclick=function(){
+    //     div.classList.add('active');
+    // }
+    // button[1].onclick=function(){s
+    //     div.classList.remove('active');
+    // }
+    // button[2].onclick=function(){
+    //     div.classList.toggle('active');
+    // }
+    // button[3].onclick=function(){
+    //     var isHave=div.classList.contains('active');
+    //     alert(isHave?'有':'没有');
+    // }
+
+
+</script>
+</html>

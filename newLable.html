@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+                var meter = document.getElementsByTagName('meter')[0];
+                var span = document.getElementsByTagName('span')[0];
+                var timer = window.setInterval(function () {
+                    meter.value++;
+                    span.innerHTML = "距离放学时间还有" + (meter.max - meter.value) + "分"
+               
+                if (meter.value >= meter.max) {
+                    clearInterval(timer);
+                }
+            },
+                100 )
+        };
+      
+    </script>
+</head>
+<body>
+    <time>2018年10月31</time>
+    <figure>
+        <figurecaption>风景</figurecaption>
+        <img src="./01nature.jpg" alt="">
+    </figure>
+    <mark>标记标签</mark>
+    <progress value="50" max="100">进度条标签</progress>
+    <meter min="0" max="100" value="0" high="80" low="10"></meter>
+    <!-- 超出height和low之间就是警告-->
+    <span>距离放学时间还有30分钟</span>
+    <!-- 新加表单表单元素 -->
+       <fieldset action="http://www.baidu.com"> 
+           <legend>登录表单</legend>
+           <input type="text" >
+           <br>
+           <input type="password">
+           <br>
+           <input type="email">
+           <br>
+           <button >提交</button>
+       </fieldset>
+      
+</body>
+</html>

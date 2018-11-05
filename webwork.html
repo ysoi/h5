@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   
+</head>
+<body>
+   <button id="btn">创建线程</button>
+</body>
+<script>
+        let button=document.getElementById('btn');
+        //创建一个线程,异步加载
+        var  wk=new Worker('./02progress.js');
+        console.log(wk);
+        wk.postMessage({num1:99,num2:1});
+        wk.onMessage=function(res){
+            alert(res.data);
+        }
+    </script>
+</html>
