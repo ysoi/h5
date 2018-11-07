@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       #box{
+           width:50px;
+           height:50px;
+           /* background:red; */
+           margin:30px auto;
+           border-radius:50%;
+       }
+       #goalBox{
+           width:200px;
+           height:200px;
+           /* background:red; */
+           background:skyblue;
+           margin:30px auto;
+       }
+       
+       .active{
+          border:2px solid skyblue;
+       }
+
+    </style>
+</head>
+<body>
+    <div id="box" draggable="true" style="background:red"></div>
+    <div id="goalBox" style="background:red"></div>
+</body>
+<script>
+   let box=document.getElementById('box');
+   let goalBox=document.getElementById('goalBox');
+  //拖拽元素
+   box.ondragstart=function(evt){
+      evt.dataTransfer.setData('name','开始')
+       box.style.background='yellow';
+    //    this.classList.add('active');
+   }
+   //目标元素
+   goalBox.ondragover=function(){
+       console.log('阻止默认事件');
+       return false;
+
+   }
+   goalBox.ondrop=function(ent){
+    var name=ent.dataTransfer.getData('name');
+     console.log(name);
+     this.style.background='green';
+     this.appendChild(box);
+   }
+</script>
+</html>

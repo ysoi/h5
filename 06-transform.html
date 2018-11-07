@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            margin:100px auto;
+            width:200px;
+            height:100px;
+            background:rgb(0,20,40);
+            /* border-radius:60px; */
+            /* 移动变形 */
+            /* transform:translateY(40px);   
+              } */
+              /* 旋转变形 */
+            transition:transform 2s ease;
+        }
+        .box img{
+            width:100%;
+            display:block;
+        }
+        /* 斜切变形  缩放*/  
+        .active{
+            transform: scale(4);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./01nature.jpg" alt="">
+    </div>
+    <button>动</button>
+</body>
+   <script>
+        let box=document.querySelector('.box');
+        let button=document.querySelector('button');
+        button.onclick=function(){
+            // box.style="transform:translate3d(200px,400px,0) rotateZ(720deg)";
+            box.classList.add('active');
+        }
+   </script>
+  
+</html>

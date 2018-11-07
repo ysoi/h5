@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .tab-container{
+            margin:100px auto;
+            width:366px;
+        }
+       .tab-container .tab-tittle::after{
+           content:'';
+           display:block;
+           clear:both;
+       }
+       .tab-container .tab-tittle li{
+           width:100px;
+           height:50px;
+           line-height:50px;
+           padding: 0 10px;
+           border:1px solid #e3e3e3;
+           list-style:none;
+           float:left;
+           text-align:center;
+           user-select:none;
+           cursor:pointer;
+       }
+
+       .active-one{
+           color:rgb(0,0,200);
+       }
+       .tab-container .tab-content{
+          
+           height:200px;
+           border:1px solid #e3e3e3;
+           width:364px;
+       }
+       .tab-container .tab-content li{
+           display:none;
+          
+       }
+       .tab-container .tab-content .active-two{
+           display:block;
+       }
+    </style>
+</head>
+<body>
+    <div class="tab-container">
+        <ul class="tab-tittle">
+            <li class="active-one title" >财经</li>
+            <li class="title">体育</li>
+            <li class="title">社会</li>
+        </ul>
+        <ul class="tab-content">
+            <li class="active-two content">在得分榜上，勇士后卫史蒂芬-库里共得到325分，场均32.5分，高居得分榜榜首。总得分排名第二的是76人新星恩比德，他一共出战11场比赛，得到了312分。</li>
+            <li class="content">在助攻榜上，猛龙球星凯尔-洛瑞总助攻116次，场均11.6次助攻高居榜首。雷霆球星威斯布鲁克虽休战几场，但他以场均8.8次助攻位于第二位。</li>
+            <li class="content">篮板榜方面，乔尔-恩比德以139个篮板位列总篮板数第一，而活塞中锋安德烈-德拉蒙德场均15.4篮板位列场均篮板榜榜首。</li>
+        </ul>
+        
+    </div>
+</body>
+<script>
+    var title=document.querySelectorAll('.title');
+    var content=document.querySelectorAll('.content')
+    title=Array.from(title);
+    content=Array.from(content);
+    // title.forEach((item,index)=>{
+        //ES6语法，相当于let index
+    //     item.onclick=function(){
+    //         title.forEach((item,ind)=>{
+               
+    //             item.classList.remove('active-one');
+
+    //         })
+    //         content.forEach((item,ind)=>{
+    //             item.classList.remove('active-two');
+    //         })
+    //         this.classList.add('active-one');
+    //         content[index].classList.add('active-two');
+    //     }
+      
+    // })
+    
+    //原生js
+    for(let i=0;i<title.length;i++){
+        title[i].onclick=function(){
+            for(j=0;j<title.length;j++){
+                title[j].classList.remove('active-one');
+                content[j].classList.remove('active-two');
+            }
+            
+           this.classList.add('active-one');
+           content[i].classList.add('active-two');
+           
+        }
+    }
+
+</script>
+</html>

@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #btn{
+            position:fixed;
+            bottom:0;
+            right:0;
+            width:30px;
+            height:30px;
+        }
+        .box{
+            position:absolute;
+            top:0;
+            left:0;
+            width:200px;
+            height:200px;
+            border:2px solid rgb(218, 199, 29);
+            border-radius:50%;
+            background:skyblue;
+            /* 多个属性过渡 */
+            transition:all 2s ease;
+            /* transition-property:margin;
+            transition-duration:2s;
+            transition-timing-function:linear;
+            transition-delay:2s;
+            will-change: */
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button id="btn">动起来</button>
+</body>
+<script>
+    //用js实现动画
+
+    let box=document.querySelector('.box');
+    let btn=document.getElementById('btn');
+    btn.onclick=function(){
+        box.style.marginLeft=500+'px';
+        box.style.top=500+'px';
+    }
+    // setInterval(()=>{
+    //     console.log(box.offsetLeft);
+    //    let left=box.offsetLeft+5;
+    //     box.style.marginLeft=left+"px";
+    // },1000/60);
+    
+</script>
+</html>

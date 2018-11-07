@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #amap{
+            height:400px;
+            width:600px;
+        }
+
+    </style>
+  
+</head>
+<body>
+    <div id="amap"></div>
+</body>
+<script   type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.8&key=924fd1825f20da1c552d54a0e406d46e"></script>>
+<script  type="text/javascript">
+  window.navigator.geolocation.getCurrentPosition(function(res){
+     
+   var lati=res.coords.latitude;//纬度
+   var long=res.coords.longitude;//经度
+      let map=new AMap.Map('amap'
+       );
+    //    let point=AMap.Point(long,lati);
+       console.log(lati,long);
+       map.setZoomAndCenter(11,[long,lati]);
+    //   let marker=new AMap.Marker({
+    //     position: new AMap.LngLat(long,lati),
+    //     title:'华杉'
+    //   });
+    //   map.add(marker);
+   },
+   function(err){
+       console.log('获取位置失败',err)
+   },
+   {timeout:10000}
+   );
+</script>
+</html>
