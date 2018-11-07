@@ -4,9 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>转盘实例</title>
+    <style>
+        .container{
+            margin:30px auto;
+            width:650px;
+            height:600px;
+            background-image:url('./imgs/turntable-bg.jpg');
+            position:relative;
+        }
+        .container .turn-plate{
+            width:450px;
+            height:450px;
+            background-image:url('./imgs/turntable.png');
+            position:absolute;
+            top:60px;
+            left:118px;
+            transition:transform 2s ease;
+        }
+        .container  .pointer{
+            width:174px;
+            height:228px;
+            background-image:url('./imgs/pointer.png');
+            position:absolute;
+            top:154px;
+            left:264px;
+           
+           
+        }
+      button{
+          height:30px;
+          width:30px;
+          background:skyblue;
+          color:red;
+          margin:10px auto;
+      }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="turn-plate">
+        </div>
+        <div class="pointer"></div>
+    </div>
+    <button>抽奖</button>
 </body>
+ <script>
+    let turn=document.querySelector('.turn-plate');
+    let btn=document.querySelector('button');
+    let total=0;
+    btn.onclick=function(){
+        //Math.random取0-1之间的小数,取不到0和1
+        // console.log('h');
+        let number= Math.round(Math.random()*7);
+        // console.log(number);
+        total += number*52+720;
+        // console.log(turn);
+        turn.style.transform=`rotateZ(${total}deg)`;
+    }
+</script>
 </html>
