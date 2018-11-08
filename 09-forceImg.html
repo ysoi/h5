@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .container{
+           
+        }
+        .container ul{
+            margin:100px auto;
+            width:500px;
+            height:280px;
+            position:relative;
+            /* 改变方式3d */
+            /* transform-style:preserve-3d; */
+            /* 景深 */
+            perspective: 500px; 
+            transition:transform 4s linear;
+            
+        }
+        .container ul li{
+            display:none;
+            width:500px;
+            height:280px;
+            list-style:none;
+            position:absolute;
+            top:0;
+            left:0;
+          
+        }
+        .container ul li img{
+            display:block;
+            width:100%;
+            height:100%;
+        }
+        .container ul .center{
+            display: block;
+            z-index:998;
+            transform:translateZ(-50px);
+        }
+        .container ul .left-first{
+            display: block;
+            z-index:994;
+            transform:rotateY(40deg)  translateX(-50px) translateZ(-80px) ;  
+        }
+        .container ul .left-second{
+            display: block;
+            z-index:990;
+            transform:rotateY(30deg)  translateX(-200px) translateZ(-80px); 
+        }
+        .container ul .right-first{
+            display: block;
+            z-index:994;
+            transform:rotateY(-40deg)  translateX(50px) translateZ(-80px);  
+        }
+        .container ul .right-second{
+            display: block;
+            z-index:990;
+            transform:rotateY(-30deg)  translateX(200px) translateZ(-80px); 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li>
+                <img src='./imgs/focusImg/1.jpg' alt="">
+            </li>
+            <li>
+                <img src='./imgs/focusImg/2.jpg' alt="">
+            </li>
+            <li class="left-second">
+                <img src="./imgs/focusImg/3.jpg" alt="">
+            </li>
+            <li class="left-first">
+                <img src="./imgs/focusImg/4.jpg" alt="">
+            </li>
+            <li class="center">
+                <img src="./imgs/focusImg/5.jpg" alt="">
+            </li>
+            <li class="right-first">
+                <img src="./imgs/focusImg/6.jpg" alt="">
+            </li>
+            <li class="right-second">
+                <img src="./imgs/focusImg/7.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/focusImg/8.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/focusImg/9.jpg" alt="">
+            </li>
+            
+        </ul>
+        <button>上一张</button>
+        <button>下一张</button>
+    </div>
+    
+</body>
+<script>
+    let lis=document.querySelectorAll('li');
+    let btns=document.querySelectorAll('button');
+    let isLock=false;
+    let arr=['','','left-second','left-first','center','right-first','right-second','','']
+    btns[1].onclick=function(){
+        if(!isLock){
+            setTimeout(()=>{
+                isLock=true;
+            },1000);
+            islock=false;
+        };
+        let first=arr.pop();
+        arr.unshift(first);
+        lis.forEach((item,index)=>{
+            item.className=arr[index]
+        })
+    };
+    btns[0].onclick=function(){
+        if(!isLock){
+            setTimeout(()=>{
+                isLock=true;
+            },1000);
+            islock=false;
+        };
+        let last=arr.shift();
+        arr.push(last);
+        lis.forEach((item,index)=>{
+            item.className=arr[index]
+        })
+    }
+</script>
+</html>
